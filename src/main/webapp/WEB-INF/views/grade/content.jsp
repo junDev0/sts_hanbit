@@ -19,10 +19,3 @@
 	<img id="img_home" src="${img }/home.png" alt="home"/>
 	</a>
 </section>
-<script src="${js}/resig.js"></script>
-<script type="text/javascript">
-
-	grade.init();
-
-
-</script>

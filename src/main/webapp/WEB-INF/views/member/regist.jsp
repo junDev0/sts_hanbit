@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@page import="java.util.*"%>
-<jsp:include page="../global/top.jsp"/>	
-<jsp:include page="../global/header.jsp"/>	
 <style type="text/css">
 span.meta {
 	width: 200px;
@@ -47,5 +45,3 @@ margin: 10px 50px 10px 50px;
 		<br/><a href="${context}/index.jsp"><img src="${img }/home.png" alt="home" style="width: 30px"/></a>
 	
   		</div>
-<jsp:include page = "../global/footer.jsp"/>
-<jsp:include page = "../global/end.jsp"/>

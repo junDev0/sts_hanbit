@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../global/top.jsp"/>	
-<jsp:include page="../global/header.jsp"/>	
-<jsp:include page="../global/navi.jsp"/>
 	<div class="box">
 <embed src="${img }/minjung.gif" style="width: 300px;height: 200px;">
 	<h2>${delete_result}</h2>
@@ -16,5 +13,3 @@
 		<a href="${context }/membe.do"><img src="${img}/user.jpg" alt="user" style="width: 30px"/></a>
 
 	</div>
-<jsp:include page = "../global/footer.jsp"/>
-<jsp:include page = "../global/end.jsp"/>

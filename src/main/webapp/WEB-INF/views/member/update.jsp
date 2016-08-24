@@ -1,9 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../global/top.jsp"/>	
-<jsp:include page="../global/header.jsp"/>	
-<jsp:include page="../global/navi.jsp"/>
 <style>
 div.box1 {
     border: 5px solid powderblue;
@@ -70,5 +67,3 @@ div.box1 {
 		<a href="${context }/home.do"><img src="${img}/home.png" alt="home" style="width: 30px"/></a>
 
 	</div>
-<jsp:include page = "../global/footer.jsp"/>
-<jsp:include page = "../global/end.jsp"/>

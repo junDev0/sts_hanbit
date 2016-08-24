@@ -6,7 +6,7 @@ var admin = (function(){
 		getPass : getPass,
 		setPass : setPass,
 		init : function(){
-			document.querySelector('#a_admin').addEventListener('click',this.check,false);
+			$('#a_admin').click(function(){});
 		},
 		check : function(){
 			var isAdmin = confirm('관리자입니까?');
@@ -14,8 +14,8 @@ var admin = (function(){
 				alert('관리자만 접근 가능합니다.');
 			}else{
 				var password = prompt('관리자 비번을 입력바랍니다.');
-				if(password == 1){
-					location.href = sessionStorage.getItem('context')+'/global.do';
+				if(password == getPass){
+					location.href = sessionStorage.getItem('context');
 				}else{
 					alert('관리자 비번이 틀립니다.')
 				}

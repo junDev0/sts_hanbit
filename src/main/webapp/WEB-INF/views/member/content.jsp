@@ -9,15 +9,15 @@
 	<h1>회원관리</h1>
 	<div style="width: 300px;margin: 0 auto;text-align: center;">
 	<ol>
-		<li><a href="${context}/member.do?page=regist">회원가입</a></li>
-		<li><a href="${context}/member.do?page=detail&action=detail">내정보보기</a></li>
-		<li><a href="${context}/member.do?page=update">내정보수정 </a></li>
-		<li><a href="${context}/member.do?page=delete">탈퇴 </a></li>
-		<li><a href="${context}/member.do?page=login">로그인</a></li>
-		<li><a href="${context}/member.do?page=logout">로그아웃 </a></li>
-		<li><a href="${context}/member.do?page=list&action=list">리스트 </a></li>
-		<li><a href="${context}/member.do?page=findBy">검색</a></li>
-		<li><a href="${context}/member.do?page=count&action=count">회원수</a></li>
+		<li><a id = "regist" href="#">회원가입</a></li>
+		<li><a id = "detail" href="#">내정보보기</a></li>
+		<li><a id = "update" href="#">내정보수정 </a></li>
+		<li><a id = "delete" href="#">탈퇴 </a></li>
+		<li><a id = "login" href="#">로그인</a></li>
+		<li><a id = "logout" href="#">로그아웃 </a></li>
+		<li><a id = "list" href="#">리스트 </a></li>
+		<li><a id = "findBy" href="#">검색</a></li>
+		<li><a id = "count" href="#">회원수</a></li>
 	</ol>
 	</div>
 	<a href="${context}/home.do">

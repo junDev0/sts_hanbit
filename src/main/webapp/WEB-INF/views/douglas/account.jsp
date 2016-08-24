@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../global/top.jsp"/>
 <link rel="stylesheet" href="${css}/douglas.css"/>
 <jsp:include page="../global/header.jsp"/>
 <jsp:include page="../global/navi.jsp"/>
