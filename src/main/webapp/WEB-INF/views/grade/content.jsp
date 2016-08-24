@@ -16,6 +16,6 @@
 		</ol>
 	</article>
 	<a href="${context}/home.do"> 
-	<img id="img_home" src="${img }/home.png" alt="home"/>
+	<img id="member_content_img_home"  alt="home" style="width: 30px"/>
 	</a>
 </section>

@@ -1,8 +1,0 @@
-@CHARSET "UTF-8";
-div.box {
-    border: 5px solid powderblue;
-    padding: 30px;
-    margin: 0 auto;
-    width: 900px;
-    text-align: center;
-}

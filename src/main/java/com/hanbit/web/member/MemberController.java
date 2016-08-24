@@ -12,7 +12,11 @@ import com.hanbit.web.home.HomeController;
 @RequestMapping("/member")
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
+	@RequestMapping("/school_info")
+	public String schoolInfo(){
+		
+		return "global/school_info.tiles";
+	}
 	@RequestMapping("/main")
 	public String moveMain() {
 		logger.info("MemberController!goMain...");	
