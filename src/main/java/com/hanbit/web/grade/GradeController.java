@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/grade")
 public class GradeController {
 	private static final Logger logger = LoggerFactory.getLogger(GradeController.class);
 

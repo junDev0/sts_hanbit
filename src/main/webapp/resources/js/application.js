@@ -20,7 +20,8 @@ var app = (function(){
 		});
 		$('#a_grade').click(function(){
 			alert('===');
-			location.href = context()+"/grade/main";
+			location.href = context()+"/member/main";
+			/*location.href = context()+"/grade/main";*/
 		});
 		$('#a_account').click(function(){
 			location.href = context()+"/account/main";

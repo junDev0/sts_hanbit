@@ -29,17 +29,7 @@
    <mvc:annotation-driven />
    <mvc:resources mapping="/resources/**" location="/resources/" />
    <context:component-scan base-package="com.hanbit.web" /> 
-<!-- <bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
-    <property name="alwaysUseFullPath" value="true" /> 
-    <property name="mappings"> 
-        <props> 
-            <prop key="/member/*">memberController</prop> 
-            <prop key="/grade/*">gradeController</prop> 
-        </props> 
-    </property> 
-</bean> 
- 
-<bean name="gradeController" class="com.hanbit.web.grade.GradeController" /> 
-<bean name="memberController" class="com.hanbit.web.member.MemberController" />
- -->
+
+
+
 </beans>

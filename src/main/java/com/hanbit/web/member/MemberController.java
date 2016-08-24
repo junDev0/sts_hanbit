@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.hanbit.web.home.HomeController;
 
 @Controller
-@RequestMapping("/grade")
+@RequestMapping("/member")
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
