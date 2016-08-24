@@ -38,18 +38,7 @@
       </footer>
   </body>
   <script src="${js}/application.js"></script>
-  <script src="${js}/grade.js"></script>
-  <script src="${js}/douglas.js"></script>
-  <script src="${js}/member.js"></script>
-  <script src="${js}/account.js"></script>
-  <script src="${js}/resig.js"></script>
   <script>
-  app.init('${context}');
-  member.init();
-  admin.init();
-  account.init();
-  grade.init();
-  douglas.init();
-  
+  app.init('${context}');  
   </script>
 </html>
