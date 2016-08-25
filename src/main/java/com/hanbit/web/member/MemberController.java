@@ -11,7 +11,7 @@ import com.hanbit.web.home.HomeController;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	@RequestMapping("/school_info")
 	public String schoolInfo(){
 		
@@ -25,7 +25,7 @@ public class MemberController {
 	@RequestMapping("/regist")
 	public String moveRegist() {
 		logger.info("MemberController!regist...");			
-		return "member/regist.tiles";
+		return "public:member/regist.tiles";
 				
 	}
 	
@@ -50,7 +50,7 @@ public class MemberController {
 	@RequestMapping("/login")
 	public String moveLogin() {
 		logger.info("MemberController!login...");			
-		return "member/login.tiles";
+		return "public:member/login.tiles";
 				
 	}
 	@RequestMapping("/logout")

@@ -1,47 +1,57 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
-<%@page import="java.util.*"%>
-<style type="text/css">
-span.meta {
-	width: 200px;
-	background-color: yellow;
-	float:left
-}
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<section id="member_regist">
+	<form id="member_regist_form" action="${context }/member.do?action=regist" method="post">
+		<div class="form-group">
+			<label for="exampleInputName">이름</label>
+			<div><input type="text" name="name" placeholder="NAME"/></div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputId">ID</label>
+			<div><input type="text" name="id" placeholder="ID"/></div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputId">PW</label>
+			<div><input type="password" name="pw" placeholder="PW"/></div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputId">EMAIL</label>
+			<div><input type="text"  name="email" placeholder="EMAIL"/></div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputId">SSN</label>
+			<div><input type="text"  name="ssn" placeholder="SSN"/></div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputId">휴대폰</label>
+			<div><input type="text" name="phone" placeholder="PHONE"/></div>
+		</div>
+		<div id="rd_major">
+		<label for="exampleInputId">전공</label><br>
+		<label class="radio-inline"><input type="radio"  id="inlineRadio1" name="major" value="computer" checked/> 컴공학부</label>
+		<label class="radio-inline"><input type="radio"  id="inlineRadio2" name="major" value="mgmt" /> 경영학부</label>
+		<label class="radio-inline"><input type="radio"  id="inlineRadio3"name="major" value="math" /> 수학부</label>
+		<label class="radio-inline"><input type="radio" id="inlineRadio4" name="major" value="eng" /> 영문학부</label>
+		</div>	
+	<div>
+    <label for="exampleInputId">수강과목</label><br>
+    <div>
+      <div id="ck_subject" class="checkbox">
+		
+		<label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" name="subject" value="java" /> Java</label>
+		<label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" name="subject" value="sql" /> SQL</label>
+		<label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" name="subject" value="cpp" /> C++</label>
+		<label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox4" name="subject" value="python" /> 파이썬</label>
+		<label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox5" name="subject" value="delphi" /> 델파이</label>
+		<label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox6" name="subject" value="html" /> HTML</label>
+      </div>
+    </div>
+  </div>
 
-
-div.joinDiv {
-border: 1px dotted gray;
-width: 80%;
-margin: 10px 50px 10px 50px;
-}
-</style>
-
-	<div class="box">
-	<h2>${result}</h2>
-	<form action="${context }/member.do?action=regist" method="post">
-		<span class="meta">이름</span> <input type="text" name="name"/><br/>
-		<span class="meta">ID</span><input type="text" name="id"/><br/>
-		<span class="meta">비밀번호</span><input type="text" name="pw"/><br/>
-		<span class="meta">email</span><input type="text" name="email"/><br/>
-		<span class="meta">SSN</span><input type="text" name="ssn"/><br/>
-		<span class="meta">휴대폰</span><input type="text" name="phone"/><br/><br/>
-		<span class="meta">전공</span> <br /><br />
-		<input type="radio" name="major" value="computer" checked/> 컴공학부
-		<input type="radio" name="major" value="mgmt" /> 경영학부
-		<input type="radio" name="major" value="math" /> 수학부 
-		<input type="radio" name="major" value="eng" /> 영문학부 <br /><br /><br/></brr>
-		<span class="meta">수강과목</span> <br /><br />
-		<input type="checkbox" name="subject" value="java" /> Java
-		<input type="checkbox" name="subject" value="sql" /> SQL
-		<input type="checkbox" name="subject" value="cpp" /> C++
-		<input type="checkbox" name="subject" value="python" /> 파이썬
-		<input type="checkbox" name="subject" value="delphi" /> 델파이
-		<input type="checkbox" name="subject" value="html" /> HTML
-		<br /><br /><br />
+		
 		<input type="hidden" name = "directory" value="home"/>
-		<input type="submit" value="회원가입"/>
-  		<input type="reset" value="취소"/>
+		<input id="member_regist_bt_join" type="submit" value="회원가입"/>
+  		<input id="bt_cancel" type="reset" value="취소"/>
 	</form>
 		<br/><a href="${context}/index.jsp"><img src="${img }/home.png" alt="home" style="width: 30px"/></a>
 	
-  		</div>
+</section>
