@@ -7,27 +7,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
+import com.hanbit.web.member.MemberDAOImpl;
+
 /**
  * @date     : 2016. 6. 20.
  * @author   : jun.dev
  * @fileName : AccountServiceImpl.java
  * @story    : 계좌 인터페이스
  */
+@Service
 public class AccountServiceImpl implements AccountService {
 
-	AccountDAO dao = AccountDAO.getInstance();
+	AccountDAOImpl dao;
 	private static AccountService instance = new AccountServiceImpl();
 	private Map map;
 	
 	public static AccountService getInstance() {
+		
 		return instance;
 	}
 
 	private AccountServiceImpl() {
+		dao = AccountDAOImpl.getInstance();
 	}
 	
 	@Override
-	public String openAccount(AccountMemberBean bean) {
+	public String openAccount(AccountMemberVO bean) {
 		int succ = dao.openAccount(bean);
 		String result = "계좌개설을 실패하였습니다.";
 		if(succ == 1){
@@ -37,7 +44,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public String deposit(AccountMemberBean bean) {
+	public String deposit(AccountMemberVO bean) {
 		int succ = dao.deposit(bean);
 		String result = "입금 실패";
 		if(succ == 1){
@@ -46,21 +53,24 @@ public class AccountServiceImpl implements AccountService {
 		return result;
 	}
 	@Override
-	public AccountMemberBean findByAcc(AccountMemberBean bean) {
-		return dao.basicAccount(bean);
+	public AccountMemberVO findByAcc(AccountMemberVO bean) {
+		return dao.findByAcc(bean);
 	}
 	@Override
-	public String withdraw(AccountMemberBean bean) {
-		return 	dao.withdraw(bean);
+	public String withdraw(AccountMemberVO bean) {
+		//return 	dao.withdraw(bean);
+		return "";
 	}
 	@Override
-	public String deleteAccount(AccountMemberBean bean) {
-		return dao.deleteAccount(bean);
+	public String deleteAccount(AccountMemberVO bean) {
+		//return dao.deleteAccount(bean);
+		return "";
 	}
 
 	@Override
-	public String updateAccount(AccountMemberBean bean) {
-		return dao.updateAccount(bean);
+	public String updateAccount(AccountMemberVO bean) {
+		//return dao.updateAccount(bean);
+		return "";
 	}
 
 
@@ -71,7 +81,7 @@ public class AccountServiceImpl implements AccountService {
 
 
 	@Override
-	public List<AccountMemberBean> findByName(String name) {
+	public List<AccountMemberVO> findByName(String name) {
 		return dao.findByName(name);
 	}
 
@@ -83,7 +93,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Map<?,?> map() {
-		map = new HashMap<String,AccountMemberBean>();
+		map = new HashMap<String,AccountMemberVO>();
 		map = dao.selectMap();
 		return map;
 	}

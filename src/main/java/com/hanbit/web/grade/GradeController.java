@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GradeController {
 	@RequestMapping("/main")
 	public String goMain(){
-		return "grade/content.tiles";
+		return "admin:grade/content.tiles";
 	}
 }

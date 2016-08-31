@@ -1,27 +1,17 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 120%;
-}
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+<div class="box">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">학생목록</div>
+  <div class="panel-body">
+    <p>...</p>
+  </div>
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
-
-<div class = box>
-	<h2>리스트 페이지</h2>
-	<table>
+  <!-- Table -->
+<table class="table">
 		<tr>
 			<th>ID</th>
 			<th>이 름</th>
@@ -45,7 +35,26 @@ tr:nth-child(even) {
 	
 	</c:forEach>
 	
-	</table><br/>
-		<a href="${context }/member.do"><img src="${img}/user.jpg" alt="user" style="width: 30px"/></a>
+	</table>
+</div>
+</div>    
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 120%;
+}
 
-	</div>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+
+

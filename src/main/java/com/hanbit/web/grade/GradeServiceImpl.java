@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import org.springframework.stereotype.Service;
+@Service
 public class GradeServiceImpl implements GradeService {
 	
-	GradeBean bean;
-	GradeDAO dao = GradeDAO.getInstance();
+	GradeVO bean;
+	private GradeDAOImpl dao;
 	private static GradeServiceImpl instance= new GradeServiceImpl(); 
 	
 	public static GradeServiceImpl getInstance() {
@@ -15,16 +17,17 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	private GradeServiceImpl() {
+		dao = GradeDAOImpl.getInstance();
 	}
 	
 	@Override
-	public int insert(GradeBean bean) {
+	public int insert(GradeVO bean) {
 		bean.setGrade(gradeRank(bean));
 		return 	dao.insert(bean);
 	}
 		
 		// 학점 구하기
-		public String gradeRank(GradeBean bean) {
+		public String gradeRank(GradeVO bean) {
 			int gradeTotal = bean.getJava() + bean.getHtml() + bean.getSql() + bean.getJavascript();
 			int gradeAvg = gradeTotal/4;
 			String result = "";
@@ -49,8 +52,8 @@ public class GradeServiceImpl implements GradeService {
 	
 	
 	@Override
-	public int update(GradeBean bean,String subjectName) {
-		GradeBean bean2 = new GradeBean();
+	public int update(GradeVO bean,String subjectName) {
+		GradeVO bean2 = new GradeVO();
 		bean2 = dao.updateInfo(bean);
 		switch (subjectName) {
 		case "자바":bean2.setJava(bean.getJava());break;
@@ -63,24 +66,24 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public int delete(GradeBean bean) {
+	public int delete(GradeVO bean) {
 		System.out.println(bean.getSeq());
 		return dao.delete(bean);
 	}
 
 	@Override
-	public List<GradeBean> list() {
+	public List<GradeVO> list() {
 		return dao.list();
 	}
 
 	@Override
-	public List<GradeBean> findByHakjum(String hakjum) {
+	public List<GradeVO> findByHakjum(String hakjum) {
 		
 		return dao.findByHakjum(hakjum);
 	}
 
 	@Override
-	public List<GradeBean> finBySeq(String id) {
+	public List<GradeVO> findBySeq(String id) {
 		return dao.findBySeq(id);
 	}
 
@@ -90,7 +93,7 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public List<GradeBean> findByMonth(String examDate) {
+	public List<GradeVO> findByMonth(String examDate) {
 		// TODO Auto-generated method stub
 		return dao.findByMonth(examDate);
 	}

@@ -9,10 +9,10 @@ package com.hanbit.web.member;
 
 public class MemberMain {
 	public static void main(String[] args) {
-		MemberBean m = new MemberBean();
-		MemberBean m2 = new MemberBean();
+		MemberVO m = new MemberVO();
+		MemberVO m2 = new MemberVO();
 		try {
-		MemberBean	m4 =(MemberBean) Class.forName("member.MemberBean").newInstance();
+		MemberVO	m4 =(MemberVO) Class.forName("member.MemberBean").newInstance();
 		m4.setId("hong");
 		m4.setName("홍길동");
 		m4.setPw("1");

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.account">
+     <select id="totalAccount" resultType="com.hanbit.web.bank.AccountVO">
+    	select * from account_member
+    </select>
+     <select id="findByName" parameterType="string" resultType="com.hanbit.web.bank.AccountVO">
+    select * from account_member where name =#{name}
+    </select>
+     <select id="count" resultType="int">
+     select count(*) as count from account_member
+    </select>
+     <select id="findByAcc" parameterType="com.hanbit.web.bank.AccountMemberVO" resultType="com.hanbit.web.bank.AccountMemberVO">
+	 select * from account_member where account_no = #{accountNO}
+    </select>
+     
+    <select id="cheekAccount" parameterType="string" resultType="com.hanbit.web.bank.AccountVO">
+    select * from member_bean where id =  #{id}
+    </select>
+    
+    <insert id="openAccount" parameterType="com.hanbit.web.bank.AccountVO">
+	insert into member_bean values(#{id},${pw},${name},${reg_date},${gender},${ssn},${age})
+    </insert>
+	<update id="deposit" parameterType="com.hanbit.web.bank.AccountVO">
+		update account set money= where account_no =#{accountNo} 
+	</update>
+	<update id="updateAccount" parameterType="com.hanbit.web.bank.AccountVO">
+		update member_bean set pw = #{pw} where id = #{id} and pw = #{modifyPw} 
+	</update>
+	
+	<update id="withdraw" parameterType="com.hanbit.web.bank.AccountVO">
+		update account set money=#{money} where account_no =#{accountNo} 
+	</update>
+	
+	<delete id="deleteAccount" parameterType="com.hanbit.web.bank.AccountVO" >
+	  delete from account where account_no = #{accountNo}
+	 </delete> 
+</mapper>

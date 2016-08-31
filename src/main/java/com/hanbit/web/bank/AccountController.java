@@ -15,6 +15,31 @@ public class AccountController {
 	@RequestMapping("/main")
 	public String moveMain() {
 		logger.info("MemberController!goMain...");	
-		return "account/content.tiles";
+		return "admin:account/content.tiles";
+	}
+	@RequestMapping("/list")
+	public String moveList() {
+		logger.info("MemberController!goMain...");	
+		return "admin:account/list.tiles";
+	}
+	@RequestMapping("/open")
+	public String moveOpen() {
+		logger.info("MemberController!goMain...");	
+		return "admin:account/open.tiles";
+	}
+	@RequestMapping("/delete")
+	public String moveDelete() {
+		logger.info("MemberController!goMain...");	
+		return "admin:account/delete.tiles";
+	}
+	@RequestMapping("/find")
+	public String moveFind() {
+		logger.info("MemberController!goMain...");	
+		return "admin:account/find.tiles";
+	}
+	@RequestMapping("/count")
+	public String moveCount() {
+		logger.info("MemberController!goMain...");	
+		return "admin:account/count.tiles";
 	}
 }

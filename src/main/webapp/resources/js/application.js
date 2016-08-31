@@ -1,13 +1,16 @@
 // var application = (function(){})();  IIFE 패턴
 var app = (function(){
    var init = function(context) {
-      onCreate();
+	   
 	  session.setAttribute(context); 
+      onCreate();
       member.init();
       user.init();
       account.init();
       kaup.init();
       grade.init();
+      nav.init();
+      admin.init();
    };
    var context = function(){return sessionStorage.getItem('context');};
    var js = function(){return sessionStorage.getItem('js');};
@@ -15,12 +18,16 @@ var app = (function(){
    var img = function() {return sessionStorage.getItem('img');};
    var to_douglas = function() {util.move('','')};
    var setContentView=function(){
-	      $('footer').addClass('bottom');
+	      $('footer').addClass('bottom').addClass('footer');
 	      $('#global_content').addClass('box');
 	      $('#global_content a').addClass('cursor_pointer');
 	      $('#global_content_a_regist').text('Sign Up').click(function(){controller.move('member','regist')});
 	      $('#global_content_a_login').text('Login').click(function(){controller.move('member','login')});
 	      $('#global_content_a_admin').text('Admin').click(function(){admin.check()});
+	      $('#header_brand').attr('alt','android_icon').attr('src',app.img()+'/android_brand.jpg')
+	      .css('width','45px').css('height','45px');
+
+	      
    };
    var onCreate = function() {
 	   setContentView();
@@ -29,6 +36,8 @@ var app = (function(){
       $('#a_grade').click(function(){controller.move('grade','main');});
       $('#a_account').click(function(){controller.move('account','main');});
       $('#a_school').click(function(){controller.move('global','school_info');});
+
+
 }
    return {
       init : init,
@@ -48,7 +57,33 @@ var admin = (function() {
 	var _pass;
     var	getPass = function(){return this._pass;};
     var setPass = function(pass){this._pass=pass;};
+    var init = function(){onCreate();};
+    var setContentView = function(){
+	      $('#admin_thumbnail1').attr('alt','mgnt').attr('src',app.img()+'/mgnt.jpg')
+	      .css('width','300px').css('height','230px');
+	      $('#admin_thumbnail2').attr('alt','grade').attr('src',app.img()+'/grade.jpg')
+	      .css('width','300px').css('height','230px');
+	      $('#admin_thumbnail3').attr('alt','account').attr('src',app.img()+'/account.jpg')
+	      .css('width','300px').css('height','230px');
+	      $('#admin_content h3').addClass('text_center');
+    };
+    var onCreate = function(){
+    	setContentView();
+        $('#admin_nav #member_mgmt #list').click(function(){controller.move('member','list');});
+        $('#admin_nav #member_mgmt #findBy').click(function(){controller.move('member','find');});
+        $('#admin_nav #member_mgmt #count').click(function(){controller.move('member','count');});
+        $('#admin_nav #account_mgmt #list').click(function(){controller.move('account','list');});
+        $('#admin_nav #account_mgmt #open').click(function(){controller.move('account','open');});
+        $('#admin_nav #account_mgmt #delete').click(function(){controller.move('account','delete');});
+        $('#admin_nav #account_mgmt #find').click(function(){controller.move('account','find');});
+        $('#admin_nav #account_mgmt #count').click(function(){controller.move('account','count');});
+
+    };
+    
     return {
+    	init : init,
+    	setContentView : setContentView,
+    	onCreate : onCreate,
     	getPass : getPass,
     	setPass : setPass,
     	check : function() {
@@ -189,6 +224,11 @@ var member = (function(){
 		$('#member_regist #rd_major > label:gt(1)').addClass('radio-inline');
 		$('#member_regist #ck_subject').addClass('checkbox');
 		$('#member_regist #ck_subject > label').addClass('checkbox-inline');	
+		$('#member_find_form').attr('action',sessionStorage.getItem('context')+'/member/search');
+		$('#member_find_form input[type="submit]"').click(function(e){
+			$('member_find_form').submit();
+		});
+		$('#member_find_form input[type="hidden"]').attr('name','context').attr('value',app.context());
 	};
 	var onCreate = function(){
 		setContentView();
@@ -199,7 +239,7 @@ var member = (function(){
 		$('#login').click(function(){controller.move('member','login');});
 		$('#logout').click(function(){controller.move('member','logout');});
 		$('#list').click(function(){controller.move('member','list');});
-		$('#findBy').click(function(){controller.move('member','findBy');});
+		$('#findBy').click(function(){controller.move('member','find');});
 		$('#count').click(function(){controller.move('member','count');});
 	};
 	var setName = function(name){this._name=name;}
@@ -383,5 +423,33 @@ var controller = (function(){
 	})();
 
 var util = (function(){
-	return {};
+	return {
+		isNumber : function(value){
+			return typeof value === 'number' && isFinite(value);
+		}
+	};
+})();
+
+var nav = (function(){
+	var init = function(){onCreate();};
+	var setContentView = function(){
+		$('#nav ul').addClass('last_style_none').addClass('over_hidden').addClass('bg_color_black')
+		.css('margin','0').css('padding','0');
+		$('#nav li').addClass('float_left').addClass('display_inline')
+		.css('border-right','1px').css('solid','#bbb');
+		$('#nav li:last-child').addClass('border_right_none');
+		$('#nav li a').addClass('display_block').addClass('li_a_color').addClass('text_center')
+		.addClass('text_decoration_none').css('padding','14px','16px');
+		$('nav li a:hover:not(.active)').addClass('bg_color_green');
+		$('nav .active').addClass('bg_color_black');
+	};
+	var onCreate = function(){
+		setContentView();
+	};
+	return {
+		init : init,
+		setContentView : setContentView,
+		onCreate : onCreate
+		
+	}
 })();

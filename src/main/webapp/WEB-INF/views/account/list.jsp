@@ -1,8 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<jsp:include page="../global/header.jsp"/>	
-<jsp:include page="../global/navi.jsp"/>
-<br/><a href="${context}/bank/main.jsp"><img src="${context}/img/user.jpg" alt="user" style="width: 30px"/></a>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="box">
+<div class="panel panel-default">
+  <div class="panel-heading">계좌목록</div>
+  <!-- Table -->  
+<table id="account_list"class="table">
+		<tr>
+			<th>ID</th>
+			<th>이 름</th>
+			<th>계좌번호</th>
+			<th>잔액</th>
+		</tr>
+	<c:forEach var="account" items="${list}">
+		<tr>
+			<td>${account.id}</td>
+			<td><a href="${context}/member.do?action=find_by_id&page=find_by_id&keyword=${member.id}">${member.name}</a></td>
+			<td>${account.name}</td>
+			<td>${account.accountNo}</td>			
+			<td>${account.money}</td>
+			
+		<tr>
 	
-<jsp:include page = "../global/footer.jsp"/>
-<jsp:include page = "../global/end.jsp"/>
+	</c:forEach>
+	
+	</table>
+</div>
+</div>    
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 120%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+
+

@@ -1,9 +1,17 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-	<div class="box">
-	<h2>회원수 페이지</h2><br/>
-		총 회원수는 ${count} 명입니다.
-		<br/><a href="${context }/member.do"><img src="${img}/user.jpg" alt="user" style="width: 30px"/></a>
-
-	</div>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<section class="box">
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge">24</span>
+   총 학생수
+  </li>
+  <li class="list-group-item">
+    <span class="badge">14</span>
+   남 학생수
+  </li>
+  <li class="list-group-item">
+    <span class="badge">10</span>
+   여 학생수
+  </li>
+</ul>
+</section>
